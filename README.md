@@ -1,4 +1,4 @@
-# Nginx reverse proxy and auto tls certificates
+# Nginx reverse proxy with auto tls certificates
 
 An simple approach to start a reverse proxy, with auto generated TSL certificates using docker to automate  
 and simplify the deployment and configuration. With this configuration it will be possible to run multiple  
@@ -26,13 +26,13 @@ websites on a single vpn with minimal configuration effort.
   `$ docker network create nginx-proxy-net`
 - Rename the `.env.example` to `.env` and edit it. Set environment variables.
 
-    ```bash
-    ### One liner, change directory copy .env and edit it
-    $ cd docker-nginx-proxy-tls && cp .env.example .env && nano .env
-    ### Following variables in .env file MUST be changed
-    DOMAIN=website.tld
-    EMAIL=your@mail.com
-    ```
+  ```bash
+  ### One liner, change directory copy .env and edit it
+  $ cd docker-nginx-proxy-tls && cp .env.example .env && nano .env
+  ### Following variables in .env file MUST be changed
+  DOMAIN=website.tld
+  EMAIL=your@mail.com
+  ```
 
 - Start the nginx proxy container with following command:  
   `$ docker-compose up -d`
@@ -54,21 +54,20 @@ don't forget to remove `./nginx-data/` line from the .gitignore file.
 Check docker compose configuration file:  
 `$ docker-compose -f <docker-compose.web.yml> config`
 
-Show running containers:
-`docker ps`
+Show running containers:  
+`$ docker ps`
 
 Show container logs:  
 `$ docker logs <nginx-proxy>`
 
-Stop container:
+Stop container:  
 `$ docker stop <container id>`
 
-Remove all UNUSED containers, networks, images.
+Remove all UNUSED containers, networks, images:  
 `$ docker system prune`
 
-WARNING! Remove ALL containers, networks, images, volumes.
-`docker system prune`
-
+WARNING! Remove ALL containers, networks, images, volumes:  
+`$ docker system prune -a`
 
 ## File structure
 
