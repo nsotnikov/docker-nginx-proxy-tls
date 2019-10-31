@@ -1,0 +1,8 @@
+# local workspace ignore
+.vscode
+.DS_Store
+._.DS_Store
+
+# production ingore
+.env
+./nginx-data/
