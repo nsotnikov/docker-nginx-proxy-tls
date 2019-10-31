@@ -17,7 +17,7 @@ With this configuration it will be possible to run multiple websites on a single
 
 ### 1. Install docker
 
-- Install docker and docker-compose on your server
+- Install [docker][link-ref-dok] and [docker-compose][link-ref-dkc] on your server
 - Clone this repository `$ git clone git@github.com:tikkerei/docker-nginx-proxy-tls.git`
 
 ### 2. Start reverse proxy and website
@@ -93,6 +93,11 @@ Build with:
 - [Docker Hub: jwilder][link-ref-dnx] - Images for jwilder/nginx-proxy
 - [Docker Hub: JrCs][link-ref-dls] - Images for JrCs/docker-letsencrypt-nginx-proxy-companion
 
+Docs:
+
+- [Docker install docs][link-ref-dok]
+- [Docker compose install docs][link-ref-dkc]
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
@@ -101,3 +106,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [link-ref-tls]:     https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion
 [link-ref-dnx]:     https://hub.docker.com/r/jwilder/nginx-proxy
 [link-ref-dls]:     https://hub.docker.com/r/jrcs/letsencrypt-nginx-proxy-companion
+[link-ref-dok]:     https://docs.docker.com/install/linux/docker-ce/ubuntu/
+[link-ref-dkc]:     https://docs.docker.com/compose/install/
