@@ -24,7 +24,7 @@ websites on a single vpn with minimal configuration effort.
 
 - Create the network for nginx proxy container:  
   `$ docker network create nginx-proxy-net`
-- Rename the `.env.example` to `.env` and edit it. Set environment variables.
+- Rename the `.env.example` to `.env` edit it and set environment variables.
 
   ```bash
   ### One liner, change directory copy .env and edit it
@@ -39,7 +39,7 @@ websites on a single vpn with minimal configuration effort.
 - Start your static web site nginx container :  
   `$ docker-compose -f docker-compose.web.yml up -d`
 
-Put your website into /www/website.tld/ folder.
+Put your website into /www/website.tld/ folder.  
 That's it.
 
 ## Additional info
