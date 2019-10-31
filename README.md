@@ -1,5 +1,9 @@
 # Nginx reverse proxy with auto tls certificates
 
+[ ![shield-version] ][link-ghb-rep]
+[ ![shield-issues] ][link-ghb-iss]
+[ ![shield-license] ][link-ghb-lcs]
+
 An simple approach to start a reverse proxy, with auto generated TSL certificates using docker to automate  
 and simplify the deployment and configuration. With this configuration it will be possible to run multiple  
 websites on a single vpn with minimal configuration effort.
@@ -107,3 +111,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [link-ref-dls]:     https://hub.docker.com/r/jrcs/letsencrypt-nginx-proxy-companion
 [link-ref-dok]:     https://docs.docker.com/install/linux/docker-ce/ubuntu/
 [link-ref-dkc]:     https://docs.docker.com/compose/install/
+[link-ghb-rep]:     https://github.com/tikkerei/docker-nginx-proxy-tls
+[link-ghb-iss]:     https://github.com/tikkerei/docker-nginx-proxy-tls/issues
+[link-ghb-lcs]:     https://github.com/tikkerei/docker-nginx-proxy-tls/blob/master/LICENSE
+
+[shield-version]:   https://img.shields.io/github/v/release/tikkerei/docker-nginx-proxy-tls
+[shield-issues]:    https://img.shields.io/github/issues/tikkerei/docker-nginx-proxy-tls
+[shield-license]:   https://img.shields.io/github/license/tikkerei/docker-nginx-proxy-tls
