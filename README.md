@@ -1,36 +1,74 @@
 # Nginx reverse proxy and auto tls certificates
 
 An simple approach to start a reverse proxy, with auto generated TSL certificates using docker to automate
-and simplify the deployment and configuration. With this configuration it will be possible
-to run multiple websites on a single vpn with minimal configuration effort.
+and simplify the deployment and configuration.  
+With this configuration it will be possible to run multiple websites on a single vpn with minimal configuration effort.
 
 ## Table of Contents
 
 - [Getting started](#getting-started)
-  - [1. Start reverse proxy](#1-start-reverse-proxy)
-  - [2. Start website](#2-start-website)
-- [Information](#information)
+  - [1. Install docker](#1-install-docker)
+  - [2. Start reverse proxy](#2-start-reverse-proxy)
+  - [3. Start website](#3-start-website)
+- [Additional info](#additional-info)
 - [File Structure](#file-structure)
 - [Reference](#references)
 
 ## Getting Started
 
-### 1. Start reverse proxy
+### 1. Install docker
+
+- Install docker and docker-compose on your server
+- Clone this repository `$ git clone git@github.com:tikkerei/docker-nginx-proxy-tls.git`
+
+### 2. Start reverse proxy
 
 - Create the network for nginx proxy container:  
   `$ docker network create nginx-proxy-net`
-- Rename the `.env.example` to .env and edit it. Set all environment variables
+- Rename the `.env.example` to `.env` and edit it. Set environment variables.
+
+    ```bash
+    # MUST BE CHANGED
+    DOMAIN=website.tld
+    EMAIL=your@mail.com
+    ```
+
 - Start the nginx proxy container with following command:  
   `$ docker-compose up -d`
 
-### 2. Start website
+### 3. Start website
 
 - Start your static web site nginx container :  
-  `$ docker-compose up -d`
+  `$ docker-compose -f docker-compose.web.yml up -d`
 
-## Information
+## Additional info
+
+All generated certificates and nginx configuration will be stored is ./nginx-data,  
+if not changed in .env. The docker compose will create the folder automatically on first start.  
+If you want to add custom nginx configuration to the repository  
+don't forget to remove `./nginx-data/` line from the .gitignore file.
+
+### Useful commands
+
+Check docker compose configuration file:  
+`$ docker-compose -f <docker-compose.web.yml> config`
+
+Show container logs:  
+`$ docker logs <nginx-proxy>`
 
 ## File structure
+
+```bash
+.                           # This repository
+├── nginx-data/             # Will be created on first start, nginx config files
+├── www/website.tld/        # Will be created on first start, place for your website
+├── .env.example            # Should be renamed to .env, environment variables
+├── .gitignore              # List of git ignored files and directories
+├── LICENSE                 # Licence agreement
+├── README.md               # This file
+├── docker-compose.web.yml  # Docker compose file for nginx proxy and letsencrypt container
+└── docker-compose.yml      # Docker compose file for your website
+```
 
 ## References
 
