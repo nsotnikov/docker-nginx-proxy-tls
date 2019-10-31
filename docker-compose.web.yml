@@ -1,0 +1,18 @@
+version: '3'
+services:
+  biosuche.eu:
+    image: ${DOCKER_IMAGE}
+    container_name: ${DOMAIN}
+    restart: unless-stopped
+    networks:
+      - nginx-proxy-net
+    volumes:
+      - ${HTML_ROOT_HOST}/${DOMAIN}:${HTML_ROOT_CONTAINER}
+    environment:
+      - VIRTUAL_HOST=${DOMAIN},www.${DOMAIN}
+      - LETSENCRYPT_HOST=${DOMAIN},www.${DOMAIN}
+      - LETSENCRYPT_EMAIL=${EMAIL}
+##################################################################	
+networks:
+  nginx-proxy-net:
+    external: true
