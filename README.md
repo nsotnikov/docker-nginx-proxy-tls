@@ -8,8 +8,7 @@ With this configuration it will be possible to run multiple websites on a single
 
 - [Getting started](#getting-started)
   - [1. Install docker](#1-install-docker)
-  - [2. Start reverse proxy](#2-start-reverse-proxy)
-  - [3. Start website](#3-start-website)
+  - [2. Start reverse proxy and website](#2-start-reverse-proxy-and-website)
 - [Additional info](#additional-info)
 - [File Structure](#file-structure)
 - [Reference](#references)
@@ -21,25 +20,27 @@ With this configuration it will be possible to run multiple websites on a single
 - Install docker and docker-compose on your server
 - Clone this repository `$ git clone git@github.com:tikkerei/docker-nginx-proxy-tls.git`
 
-### 2. Start reverse proxy
+### 2. Start reverse proxy and website
 
 - Create the network for nginx proxy container:  
   `$ docker network create nginx-proxy-net`
 - Rename the `.env.example` to `.env` and edit it. Set environment variables.
 
     ```bash
-    # MUST BE CHANGED
+    ### One liner, change directory copy .env and edit it
+    $ cd docker-nginx-proxy-tls && cp .env.example .env && nano .env
+    ### Following variables in .env file MUST be changed
     DOMAIN=website.tld
     EMAIL=your@mail.com
     ```
 
 - Start the nginx proxy container with following command:  
   `$ docker-compose up -d`
-
-### 3. Start website
-
 - Start your static web site nginx container :  
   `$ docker-compose -f docker-compose.web.yml up -d`
+
+Put your website into /www/website.tld/ folder.
+That's it.
 
 ## Additional info
 
@@ -53,8 +54,21 @@ don't forget to remove `./nginx-data/` line from the .gitignore file.
 Check docker compose configuration file:  
 `$ docker-compose -f <docker-compose.web.yml> config`
 
+Show running containers:
+`docker ps`
+
 Show container logs:  
 `$ docker logs <nginx-proxy>`
+
+Stop container:
+`$ docker stop <container id>`
+
+Remove all UNUSED containers, networks, images.
+`$ docker system prune`
+
+WARNING! Remove ALL containers, networks, images, volumes.
+`docker system prune`
+
 
 ## File structure
 
@@ -65,7 +79,7 @@ Show container logs:
 ├── .env.example            # Should be renamed to .env, environment variables
 ├── .gitignore              # List of git ignored files and directories
 ├── LICENSE                 # Licence agreement
-├── README.md               # This file
+├── README.md               # This README.md file
 ├── docker-compose.web.yml  # Docker compose file for nginx proxy and letsencrypt container
 └── docker-compose.yml      # Docker compose file for your website
 ```
