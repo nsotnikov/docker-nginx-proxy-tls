@@ -1,8 +1,8 @@
 # Nginx reverse proxy and auto tls certificates
 
-An simple approach to start a reverse proxy, with auto generated TSL certificates using docker to automate
-and simplify the deployment and configuration.  
-With this configuration it will be possible to run multiple websites on a single vpn with minimal configuration effort.
+An simple approach to start a reverse proxy, with auto generated TSL certificates using docker to automate  
+and simplify the deployment and configuration. With this configuration it will be possible to run multiple  
+websites on a single vpn with minimal configuration effort.
 
 ## Table of Contents
 
