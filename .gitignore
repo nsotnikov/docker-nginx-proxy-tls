@@ -5,5 +5,5 @@
 
 # ingore on server, to avoid git problem
 .env
-./nginx-data/
-./www/
+nginx-data/
+www/
