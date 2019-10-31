@@ -3,6 +3,7 @@
 .DS_Store
 ._.DS_Store
 
-# production ingore
+# ingore on server, to avoid git problem
 .env
 ./nginx-data/
+./www/
