@@ -4,9 +4,7 @@
 [ ![shield-issues] ][link-ghb-iss]
 [ ![shield-license] ][link-ghb-lcs]
 
-An simple approach to start a reverse proxy, with auto generated TSL certificates using docker to automate  
-and simplify the deployment and configuration. With this configuration it will be possible to run multiple  
-websites on a single vpn with minimal configuration effort.
+An simple approach to start a reverse proxy, with auto generated TSL certificates using docker to automate and simplify the deployment and configuration. With this configuration it will be possible to run multiple websites on a single vpn with minimal configuration effort.
 
 ## Table of Contents
 
@@ -28,7 +26,7 @@ websites on a single vpn with minimal configuration effort.
 
 - Create the network for nginx proxy container:  
   `$ docker network create nginx-proxy-net`
-- Rename the `.env.example` to `.env` edit it and set environment variables.
+- Copy the `.env.example` to `.env` edit it and set environment variables.
 
   ```bash
   ### One liner, change directory copy .env and edit it
@@ -48,10 +46,7 @@ That's it.
 
 ## Additional info
 
-All generated certificates and nginx configuration will be stored is ./nginx-data,  
-if not changed in .env. The docker compose will create the folder automatically on first start.  
-If you want to add custom nginx configuration to the repository  
-don't forget to remove `./nginx-data/` line from the .gitignore file.
+All generated certificates and nginx configuration will be stored is `./nginx-data`, if not changed in `.env`. The docker compose will create the folder automatically on first start. If you want to add custom nginx configuration to the repository don't forget to remove `./nginx-data/` line from the `.gitignore` file.
 
 ### Useful commands
 
@@ -65,7 +60,7 @@ Show container logs:
 `$ docker logs <nginx-proxy>`
 
 Stop container:  
-`$ docker stop <container id>`
+`$ docker stop <container-id>`
 
 Remove all UNUSED containers, networks, images:  
 `$ docker system prune`
